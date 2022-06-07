@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="blogsListPag bCont">
+    <div class="batContainer">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="bListInner">
+            {% for cont in blogFetch %}
+           
+             
+            <div class="viewBlogContent">
+            <h4>{{ cont.1 }}</h3> 
+            <img src="{{url_for('static',filename='uploads/')}}{{cont.3}}" alt="blog image" class="img-fluid" />
+            <p>{{ cont.2 }}</p> 
+            </div>
+        {% endfor %}
+            <!---Blog list-->
+        
+        </div>
+    </div>
+ 
+    </div>
+    </div>
+</div>  
+
+{% endblock content %}
+
+

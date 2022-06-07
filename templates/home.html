@@ -1,0 +1,274 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!--start of home corousel-->
+<div id="carouselExampleDark" class="carousel homeBanner carousel-dark slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <img src="{{url_for('static', filename='images/crick.png')}}" data-bs-target="#carouselExampleDark"
+      data-bs-slide-to="0" class="active img-fluid" aria-current="true" aria-label="Slide 1" alt="cricket button" />
+    <img src="{{ url_for('static', filename='images/baseball.png')}}" class="img-fluid" alt="baseball button"
+      data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2" />
+    <img src="{{url_for('static', filename='images/tennis.png')}}" class="img-fluid" alt="tennis button"
+      data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3" />
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <div class="hmCfirstImg hmCimg"></div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <div class=" hmCsecImg hmCimg"></div>
+    </div>
+    <div class="carousel-item">
+      <div class="hmCthirdImg hmCimg"></div>
+    </div>
+  </div>
+
+</div>
+<!--end of home corousel-->
+<div class="homeSecondContainer">
+  <div class="homeSecInner">
+    <div class="row  batContainer sportRow">
+      <!--container part-->
+      <div class="col-sm-4 col-md-4">
+        <div class="sportColumn">
+          <div class="sportColumnInner">
+            <img src="{{url_for('static' , filename = 'images/bat-cont.jpg')}}" class="img-fluid contImg"
+              alt="cricket Img" />
+          </div>
+          <div class="bottomCont">
+            <div class="bottomContInner">
+              <img src="{{url_for('static' , filename = 'images/baseball.png')}}" class="img-flud"
+                alt="bottom container image" />
+              <p>BatFast is a world class sports technology business providing inclusive experiences to the global
+                sports and entertainment industry.
+                <a href="#" target="_blank">Read More</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--container part--->
+      <!--container part-->
+      <div class="col-sm-4 col-md-4">
+        <div class="sportColumn">
+          <div class="sportColumnInner">
+            <img src="{{url_for('static' , filename = 'images/cric-cont.jpg')}}" class="img-fluid contImg"
+              alt="cricket Img" />
+          </div>
+          <div class="bottomCont">
+            <div class="bottomContInner">
+              <img src="{{url_for('static' , filename = 'images/crick.png')}}" class="img-flud"
+                alt="bottom container image" />
+              <p>BatFast is a world class sports technology business providing inclusive experiences to the global
+                sports and entertainment industry.
+                <a href="#" target="_blank">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--container part--->
+      <!--container part-->
+      <div class="col-sm-4 col-md-4">
+        <div class="sportColumn">
+          <div class="sportColumnInner">
+            <img src="{{url_for('static' , filename = 'images/tennis-cont.jpg')}}" class="img-fluid contImg"
+              alt="cricket Img" />
+          </div>
+          <div class="bottomCont">
+            <div class="bottomContInner">
+              <img src="{{url_for('static' , filename = 'images/tennis.png')}}" class="img-flud"
+                alt="bottom container image" />
+              <p>BatFast is a world class sports technology business providing inclusive experiences to the global
+                sports and entertainment industry.
+                <a href="#" target="_blank">Read More</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!--container part--->
+    </div>
+  </div>
+  <div class="blackContent batContainer">
+    <div class="blackContentInner">
+      <h3>Join the BatFast revolution</h3>
+      <p>Sport no longer has to be played by the old rules. It’s undergoing a massive social revolution, with 21st
+        century entrepreneurs transcending the old norms and exciting a new generation of players. Sport can now be
+        unrestricted entertainment available to all, underpinned by social inclusion and global reach.</p>
+      <div class="dbBtn">
+        <button type="button" class="getButton"> Get In Touch</button>
+        <button type="button" class="getButton" data-bs-toggle="modal" data-bs-target="#videoModal" id="videoBtn">Watch
+          Video</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--third container--->
+<div class="homeThirdContainer">
+  <div class="homeThirdContainerInner batContainer">
+    <div class="customerSlick">
+      <div>
+        <div class="cSlickImage">
+          <img src="{{url_for('static', filename='images/slick-1.png')}}" alt="customer image" class="img-fluid" />
+        </div>
+      </div>
+      <!--slick split-->
+      <div>
+        <div class="cSlickImage">
+          <img src="{{url_for('static', filename='images/slick-2.png')}}" alt="customer image" class="img-fluid" />
+        </div>
+      </div>
+      <!--slick split-->
+      <div>
+        <div class="cSlickImage">
+          <img src="{{url_for('static', filename='images/slick-3.png')}}" alt="customer image" class="img-fluid" />
+        </div>
+      </div>
+      <!--slick split-->
+      <div>
+        <div class="cSlickImage">
+          <img src="{{url_for('static', filename='images/slick-4.png')}}" alt="customer image" class="img-fluid" />
+        </div>
+      </div>
+      <!--slick split-->
+      <div>
+        <div class="cSlickImage">
+          <img src="{{url_for('static', filename='images/slick-5.png')}}" alt="customer image" class="img-fluid" />
+        </div>
+      </div>
+      <!--slick split-->
+      <div>
+        <div class="cSlickImage">
+          <img src="{{url_for('static', filename='images/slick-6.png')}}" alt="customer image" class="img-fluid" />
+        </div>
+      </div>
+      <!--slick split-->
+      <div>
+        <div class="cSlickImage">
+          <img src="{{url_for('static', filename='images/slick-1.png')}}" alt="customer image" class="img-fluid" />
+        </div>
+      </div>
+      <!--slick split-->
+    </div>
+  </div>
+</div>
+<!--end of third container-->
+<!--fourth conatiner-->
+<div class="homeFourthConatiner">
+<div class="batContainer">
+  <h2>BatFasters  Say...</h2>
+<div class="accordion accordion-flush" id="batterSay">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        Gary Kirsten, South African Legend & World Cup-winning Head Coach
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#batterSay">
+      <div class="accordion-body">“BatFast is a great way to engage cricket enthusiasts. It is the perfect entertainment offering for the amateur and a great training tool for the more experienced cricketer too. We are exploring ways to make better use of simulators for professional players and are excited by the direction the BatFast team are taking. Technology needs to be embraced and we’re thrilled about the prospects of this partnership.”</div>
+    </div>
+  </div>
+  <!--accordion split-->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        Brent Cross, Marketing Manager
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#batterSay">
+      <div class="accordion-body">Having BatFast at Brent Cross for reopening meant we saw a huge number of customers engaging with the 3 sports and the leaderboard element heightened this. Working with the BatFast team was easy from start to finish and we can’t wait to see them back at Brent Cross!</div>
+    </div>
+  </div>
+   <!--accordion split-->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        England and Wales Cricket Board, Head of Participation and Growth Team
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#batterSay">
+      <div class="accordion-body">“We are constantly looking for creative ways to engage the public in our sport, and put more bats and balls in people’s hands, regardless of their age, gender or level of cricket experience. BatFast’s technology is a superb innovation and they have helped us make cricket fun, accessible and relevant to people who may not have otherwise thought or chosen to have a go at cricket. Would thoroughly recommend.”</div>
+    </div>
+  </div>
+   <!--accordion split-->
+   <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingFour">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+        David Lloyd, General Manager
+      </button>
+    </h2>
+    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#batterSay">
+      <div class="accordion-body">“We had overwhelmingly positive feedback from our members. Its something that I myself was particularly excited about and with the way that our club is evolving and changing over time, something like this really does add some extra value; and its been great to see that each time its come back its got busier and busier, so yeah it has really added some value to us.”</div>
+    </div>
+  </div>
+   <!--accordion split-->
+   <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingFive">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+        Geraint Jones, England Legend
+      </button>
+    </h2>
+    <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#batterSay">
+      <div class="accordion-body">“Just played on the BatFast Cricket Simulator at St Lawrence College. First of all, it was loads of fun, to hit Chris Jordan for four through the covers is always pleasing… The kids loved to bat against the simulator but, what also shone for me was the versatility of it, you can groove yourself, use it as for specific training when getting close to the season and you can recreate match situations where it’s you against the bowler. Thumbs up, well done, a good bit of kit.”</div>
+    </div>
+  </div>
+   <!--accordion split-->
+   <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingSix">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+        Josh Hazlewood, Australian International
+      </button>
+    </h2>
+    <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#batterSay">
+      <div class="accordion-body">“It was as close to reality as possible really. I’m a left-handed batter so I selected left-handed bowlers. I played Nathan Lyon’s ball to Kumar Sangakkara, it was tough, there were some good deliveries in there. I also faced Mitch Johnson against Alastair Cook, it certainly swung and recreated what happened in the game so yeah, it was realistic and good fun. I then faced Ryan Harris against Alastair Cook, so I had three tough decisions.”</div>
+    </div>
+  </div>
+   <!--accordion split-->
+</div>
+</div>
+</div>
+<!--end of fourth container-->
+<!--fifth container-->
+<div class="fifthSec">
+  <div class="fifthSecInner">
+    <div class="batContainer">
+      <div class="getInTouch">
+        <h3>Get In Touch.</h3>
+        <div class="gtInn">
+          <div class="gtFinputSec">
+            <input class="gtFinn"  placeholder="Full Name" name="fName" />
+          </div>
+          <div class="gtFinputSec">
+            <input class="gtFinn"  placeholder="Email Address" name="fEmail" />
+          </div>
+          <div class="gtFinputSec">
+            <textarea  rows="4" cols="50" placeholder="Your message" name="fMsg" ></textarea>
+          </div>
+          <div class="gtFinputSec">
+            <button class="gtSubmit" type="button">SUBMIT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end of fifth container-->
+<!---Video Modal Content-->
+<!-- Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" id="videoClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+      </div>
+      <div class="modal-body">
+        <video id="watchVideo" controls>
+          <source src="https://batfast.com/wp-content/uploads/2022/02/CORP_JAN_FIN_2_Web.mp4" type="video/mp4">
+        </video>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--end Of video Modal content-->
+{% endblock content %}

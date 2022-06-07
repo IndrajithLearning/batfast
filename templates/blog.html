@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="blogsListPag bCont">
+    <div class="batContainer">
+        {% for cat,message in get_flashed_messages(with_categories = true) %}
+        <div class = "alert alert-success text-center">
+            {{ message }}
+             </div>
+        {% endfor %}
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="bListInner">
+            {% for cont in blogres %}
+           
+             <a class="bList" href="{{ url_for('view_blog', id=cont.0) }}">
+            <div class="bTitle">
+                <img src="{{url_for('static',filename='uploads/')}}{{cont.3}}" alt="blog-image" class="img-fluid" />
+                <h3>   
+                {{ cont.1 }}</h3>  
+            
+            </div>
+        </a>
+        {% endfor %}
+            <!---Blog list-->
+        
+        </div>
+    </div>
+    <!--Blog side content-->
+    <div class="col-sm-4">
+        <div class="blog_side">
+            <div class="bs_btns">
+                <a href="{{url_for('blog_content')}}">
+                    Write a post
+                </a>
+                <a href="{{url_for('blog_management')}}">
+                    Blog management
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>  
+
+{% endblock content %}
+
+

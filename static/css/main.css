@@ -1,0 +1,648 @@
+/* custom scroll css */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ca11427b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #a5142a;
+    border-radius: 50px;
+}
+
+/* end of custom scroll*/
+.batLogo {
+    width: 100px;
+}
+
+button.navbar-toggler {
+    background: #a5142a;
+}
+
+.batContainer {
+    width: 90%;
+    margin: auto;
+}
+
+.wholeNav {
+    background-color: rgba(0, 0, 0, .7);
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    padding: 10px 0px;
+}
+
+.menuBar span {
+    width: 30px;
+    height: 3px;
+    border-radius: 5px;
+    background-color: #a5142a;
+    transition: 0.5s all ease;
+}
+
+.menuBar {
+    display: inline-grid;
+    cursor: pointer;
+    position: relative;
+    z-index: 999;
+}
+
+.menuBar span:nth-child(2) {
+    margin: 5px 0px;
+}
+.menuBar:hover span:nth-child(1) {
+
+    transform: translateY(-2px);
+}
+.menuBar:hover span:nth-child(3) {
+    transform: translateY(2px);
+}
+.navContainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+.menuBar.active span:nth-child(1){
+    transform: rotate(20deg);
+}
+.menuBar.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(5px) translateX(6px);
+}
+.menuBar.active span:nth-child(2){
+    opacity: 0;
+}
+.menuBar.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-5px) translateX(6px);
+}
+.hmCimg {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+
+}
+
+.hmCfirstImg,
+.hmCthirdImg {
+    background: url(../images/bat-c-1.jpg) center center;
+    background-size: 100%;
+}
+
+.hmCsecImg {
+    background: url(../images/bat-c-2.jpg) center center;
+    background-size: 100%;
+}
+
+.carousel-dark .carousel-indicators [data-bs-target] {
+    background: transparent;
+}
+
+.homeBanner .carousel-indicators img {
+    width: 200px;
+    height: 113px;
+    background-color: transparent;
+    margin: 0px 20px;
+    opacity: 1;
+}
+
+.homeSecInner {
+    padding: 5% 0px;
+}
+
+.homeBanner .carousel-indicators img.active {
+    opacity: 1;
+}
+
+.homeBanner .carousel-indicators img {
+    opacity: 0.5;
+}
+
+.sportColumnInner {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.sportColumnInner img {
+    transition: 0.8s all ease;
+}
+
+.sportColumn:hover .sportColumnInner img {
+    transform: scale(1.10)
+}
+
+.sportColumn {
+    cursor: pointer;
+}
+
+.bottomContInner img {
+    width: 200px;
+    height: 90px;
+    margin: 20px 20px;
+}
+
+.bottomCont {
+    position: absolute;
+    transition: 1s all ease-in-out;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    background: rgb(162, 9, 32, 0.7);
+}
+
+.bottomContInner p {
+    display: none;
+    margin: 20px 20px;
+    transition: 1s all ease-in-out;
+    transition-delay: 0.5s;
+    opacity: 0;
+    font-size: 22px;
+    color: #fff;
+    font-family: cursive;
+}
+
+.bottomContInner p a {
+    display: block;
+    margin: 10px 0px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    width: max-content;
+}
+
+.bottomContInner p a:after {
+    content: '';
+    width: 0%;
+    height: 3px;
+    background: #fff;
+    bottom: 3px;
+    left: 0px;
+    transition: 1s all ease;
+    display: block;
+}
+
+.bottomContInner p a:hover:after {
+    width: 100%;
+}
+
+.sportColumn:hover .bottomCont {
+    top: 0px;
+}
+
+.sportColumn:hover .bottomContInner p {
+    display: block;
+    opacity: 1;
+}
+
+.bottomCont img {
+    width: 150px;
+}
+
+.sportColumn {
+    position: relative;
+}
+
+.homeSecondContainer {
+    background: #B2B2B0;
+}
+
+.blackContentInner {
+    background: #1D1D1D;
+    padding: 40px;
+}
+
+.blackContent {
+    padding: 0px 0px 5% 0px;
+}
+
+.blackContentInner {
+    color: #fff;
+    text-align: center;
+}
+
+.blackContentInner h3 {
+    font-size: 36px;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.blackContentInner p {
+    font-size: 18px;
+
+}
+
+.blackContentInner h3 {
+    font-size: 40px;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.blackContentInner p {
+    font-size: 18px;
+}
+
+.getButton {
+    background: #a5142a;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    border: 2px solid #000;
+    transition: 1s all ease;
+}
+
+.getButton:hover {
+    border: 2px solid #fff;
+    ;
+}
+#videoModal .modal-dialog {
+    top: 12%;
+    transform: scale(0);
+    opacity: 0;
+    transition: 0.4s all ease-in-out;
+    width: 60%;
+    max-width: 60%;
+    text-align: center;
+}
+
+
+#videoModal .modal-content {
+    background: transparent;
+    border: 0px;
+}
+#videoModal .modal-body{
+    padding: 0px;
+}
+#videoModal.show .modal-dialog {
+    transform: scale(1);
+    opacity: 1;
+
+}
+#videoModal video {
+    width: 100%;
+}
+#videoModal .btn-close:hover, #videoModal .btn-close {
+    color: #fff;
+    opacity: 1;
+    border: 2px solid;
+    border-radius: 50%;
+    background: none;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+.customerSlick .slick-dots li button:before{
+    content: "";
+    background: #fff;
+    width:10px;
+    height:10px;
+    border-radius: 50%;
+}
+
+.customerSlick .slick-dots {
+    position: absolute;
+    bottom: -65px;
+}
+
+#videoModal .modal-header{
+    border: 0px;
+}
+.homeThirdContainer {
+    padding: 5% 0px;
+    background: #a5142a;
+}
+.cSlickImage img{
+    margin: 0px auto;
+    width:90%;
+}
+
+.homeFourthConatiner{
+    padding: 5% 0px;
+}
+
+div#batterSay {
+    border: 1px solid #a5142a;
+}
+
+#batterSay .accordion-button{
+    transition: 1s all ease;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: cursive;
+
+}
+#batterSay .accordion-button:not(.collapsed){
+    background: #a5142a;
+    font-weight: 800;
+    color: #fff;
+}
+
+#batterSay .accordion-body {
+    font-size: 14px;
+    color: #a5142a;
+    font-family: cursive;
+}
+#batterSay .accordion-button:after {
+    transform: rotate(0) translateY(-6px);
+    background: none;
+    content: "+";
+    font-size: 22px;
+    transition: 1s all ease;
+}
+#batterSay .accordion-button:not(.collapsed):after{
+    content: "-";
+    color: #fff;
+}
+.batContainer h2{
+    font-size: 26px;
+    color:#a5142a;
+    font-weight: 800;
+    font-family: cursive;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.fifthSec{
+    padding: 5% 0px;
+    background: #a5142a;
+}
+.getInTouch {
+    width: 60%;
+    margin: 0px auto;
+}
+.gtFinn{
+    width: 100%;
+    height: 50px;
+    padding: 0px 10px;
+    border: 0px;
+    font-size: 18px;
+}
+.gtFinputSec {
+    padding: 15px 0px;
+}
+.gtFinputSec textarea{
+   resize: none;
+   height: 200px;
+   width: 100%;
+   font-size: 18px;
+}
+.getInTouch h3 {
+    font-size: 36px;
+    color: #fff;
+    font-weight: 800;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: sans-serif;
+}
+.gtFinputSec {
+    padding: 15px 0px;
+    text-align: center;
+}
+.gtFinputSec {
+    padding: 15px 0px;
+    text-align: center;
+}
+.gtSubmit {
+    background: #fff;
+    color: #a5142a;
+    font-size: 16px;
+    font-weight: 800;
+    border: 1px solid #a5142a;
+    font-family: sans-serif;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+/*Menu css*/
+.menuListInner ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.menuListInner li a {
+    display: block;
+    margin: 10px 0px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    width: max-content;
+}
+
+.menuListInner li a {
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 24px;
+
+}
+.menuListInner li a:after{
+    content: '';
+    width: 0%;
+    height: 3px;
+    background: #fff;
+    bottom: 3px;
+    left: 0px;
+    transition: 0.5s all ease;
+    display: block;
+}
+.mennuListInner li {
+    padding: 10px 0px;
+}
+.menuListInner li a:hover:after {
+    width:100%;
+}
+.menuList {
+    position: absolute;
+    right: -100%;
+    top: 0px;
+    height: 100vh;
+    background: #000c;
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.menuList.active{
+    right:0%;
+    
+}
+.menuListInner {
+    padding: 20px 75px;
+    margin-top: 100px;
+}
+.formButton {
+    padding-top: 150px;
+}
+
+/*blog List page css*/
+.bCont {
+    padding-top: 10%;
+}
+.bTitle img {
+    width: 100px;
+}
+.bTitle {
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+}
+.bTitle h3 {
+    font-size: 20px;
+    font-weight: 800;
+    font-family: cursive;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    padding: 20px;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+.bList{
+    color: #a5142a;
+    display: block;
+    transition: 0.75s all ease;
+}
+.bList:hover {
+    color: #fff;
+    background: #a5142a;
+}
+.bs_btns a {
+    display: ba;
+    display: block;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    background: #a5142a;
+    margin: 10px auto;
+    color: #fff;
+    padding: 10px 0px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+}
+.blog_login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.b_log {
+    padding: 50px;
+    border: 2px solid #a5142a;
+    border-radius: 20px;
+}
+.bLinput{
+    width: 400px;
+    height: 60px;
+    color: #a5142a;
+    padding: 0px 10px;
+    border: 2px solid #a5142a;
+
+}
+input.bLsubmit,.bLsubmit {
+    text-align: center;
+    background: #a5142a;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 0px;
+    border-radius: 6px;
+}
+.b_log_input {
+    margin: 20px 0px;
+    text-align: center;
+}
+.blogCms .bLinput{
+    width: 100%;
+}
+.blogCmsInner{
+    padding: 5%;
+}
+.bLinput.content {
+    height: 250px;
+    resize: none;
+}
+#hiddenImage{
+    opacity: 0;
+    position: absolute;
+}
+.b_log_input textarea {
+    height: 200px;
+    padding: 10px;
+    resize: none;
+}
+.viewBlogContent h4 {
+    font-size: 40px;
+    text-transform: uppercase;
+    color: #a5142a;
+    font-weight: 800;
+    font-family: cursive;
+    padding: 3% 0px;
+}
+.viewBlogContent img {
+    width: 500px;
+}
+
+.viewBlogContent p{
+    font-size: 18px;
+    color: #a5142a;
+    font-family: cursive;
+    padding: 3% 0px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  table a,table a:hover{
+      text-align: center;
+      padding: 5px;
+      background-color: #a5142a;
+      display: block;
+      margin: 0px 10px;
+      font-size: 12px;
+      color: #fff;
+  }
+  .updateBlogModal,.deleteBlogModal {
+      z-index: 999999;
+  }
+.alert button{
+    position: absolute;
+    right: 10px;
+}
+.blinkAlert,.blinkAlertUpdate{
+   opacity: 0;
+}
+.blinkAlert.active,.blinkAlertUpdate.active{
+    animation: blAlert 5s 1;
+}
+.cmsAlert{
+    position: relative;
+    height: 100px;
+}
+.cmsAlertInn div{
+    position: absolute;
+    width:100%;
+}
+@keyframes blAlert {
+  0%{opacity: 0;}
+  25%{opacity:1;}
+  100% {opacity: 0;}
+}

@@ -1,0 +1,76 @@
+from datetime import datetime
+from email.policy import default
+from operator import ipow
+import secrets
+from turtle import title
+from types import MethodDescriptorType
+from wsgiref.validate import validator
+from flask import Flask , render_template, url_for,request,redirect, session ,flash
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
+from flask_mysqldb import MySQL
+
+
+app = Flask(__name__)
+#secret key
+app.config['SECRET_KEY'] = "qwerty123" 
+#database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///bloglogin.sqlite3'
+
+db = SQLAlchemy(app)
+
+#create db model
+class blogContent(db.Model):
+        id = db.Column(db.Integer, primary_key = True)
+        blogTitle = db.Column(db.String(1000), nullable=False)
+        blogContent= db.Column(db.String(1000), nullable=False)
+        blogImage = db.Column(db.Text)
+        
+def __init__(self, blogTitle,blogContent, blogImage):
+        self.blogTitle = blogTitle
+        self.blogContent = blogContent
+        self.blogImage = blogImage
+
+@app.route("/")
+@app.route("/home")
+def home():
+    return render_template("home.html")
+
+
+
+
+@app.route("/blog-login" , methods =['GET','POST'])
+def blog_login():
+        if request.method == 'POST':
+                userName = request.form['name']
+                emailId = request.form['email']
+                if not userName or not emailId:
+                        flash('Please enter all the fields', 'error1')
+                elif  userName != "test" and  emailId != "test123":
+                        flash('Please enter the correct account Details', 'error2')
+                else:
+                        return redirect(url_for("blog_content"))
+        return render_template("blog-login.html")
+
+
+@app.route("/blog-content",methods =['GET','POST'])
+def blog_content():
+        if request.method == "POST":
+                blogMaterial = blogContent(blogTitle = request.form['bTitle'],blogContent = request.form['bContent'],blogImage = request.form['bImage']) 
+                if not blogMaterial.blogTitle or not blogMaterial.blogContent:
+                        flash('Atleast enter Blog title and Blog Content', 'Blog_error')   
+                else:
+                        db.session.add(blogMaterial)  
+                        db.session.commit()
+                        return redirect(url_for("blogs"))
+        return render_template("blog-content.html")
+
+@app.route("/blogs", methods = ['GET','POST'])
+def blogs():
+        return render_template("blog.html", blogCmsresult = blogContent.query.all())
+
+
+if __name__ == '__main__':
+   db.create_all()
+   app.run(debug = True)

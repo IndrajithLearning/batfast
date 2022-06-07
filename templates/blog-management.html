@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="blogsListPag blogCMS bCont">
+    <div class="batContainer">
+        <div class="cmsAlert">
+            <div class="cmsAlertInn">
+        <div class="alert alert-danger text-center blinkAlert" role="alert" id="delAlert">
+           <p class="m-0"> Blog has been deleted sucessfully.</p>
+            
+        </div>
+        <div class="alert alert-success text-center blinkAlertUpdate" role="alert" id="delAlert">
+            <p class="m-0">Blog has been updated sucessfully.</p>
+        </div>
+        </div>
+    </div>
+     
+        
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Hello {{session.userName}}</h3>
+                <div class="bListInner">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">BLOG TITLE</th>
+                                <th scope="col">EDIT</th>
+                                <th scope="col">DELETE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cont in blogFetch %}
+                            <tr class="{{cont.0}}">
+                                <td>{{ cont.0 }}</td>
+                                <td class="aftUp">{{ cont.1 }}</td>
+                                <td><a href="#"  class="upPost" data-bs-toggle="modal" data-bs-target="#updateModal{{cont.0}}">Edit
+                                    </a>
+                                </td>
+                                <td><a href="#" class="delTri" data-bs-toggle="modal"  data-bs-target="#deleteModal{{cont.0}}">Delete</a></td> 
+                            </tr>
+                            <!---update blog Modal-->
+                            <div class="modal fade updateBlogModal" id="updateModal{{cont.0}}"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title text-center" id="staticBackdropLabel">Update Blog</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="updateBlog" enctype="multipart/form-data">
+                                            <input type="hidden" name="bId" value="{{ cont.0 }}" />
+                                            <div class="b_log_input">
+                                              <input type="text"  name="bTitle" value="{{ cont.1 }}" class="bLinput upTitle{{ cont.0 }}" placeholder="Blog title" />
+                                            </div>
+                                            <div class="b_log_input">
+                                              <textarea type="text" name="bContent" value="{{ cont.2 }}" class="bLinput upContent{{ cont.0 }}" placeholder="Blog content" >{{ cont.2 }}</textarea>
+                                              <!-- <input type="text" name="bContent" value="{{ cont.2 }}" class="bLinput upContent{{ cont.0 }}" placeholder="Blog content" /> -->
+                                            </div>
+                                            <div class="b_log_input">
+                                              <!-- <input id="hiddenImage" type = "file" name = "file" class = "file"> -->
+                                              <input type="file" accept="image/*" name="bImage" id="imag" value="{{cont.3}}" class="bLinput upImage{{ cont.0 }}" placeholder="Blog Image" />
+                                            </div>
+                                            <div class="b_log_input">
+                                              <button type="button"  value="{{ cont.0 }}" class="updateBlogBtn bLsubmit">Update</button>
+                                            </div>
+                                      
+                                      
+                                        </form>
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </div>
+                                <!---delete blog Modal-->
+                                <div class="modal fade deleteBlogModal" id="deleteModal{{cont.0}}"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                           <div class="text-center">
+                                               <h4>Are you sure to delete the Blog {{cont.0}}?</h4>
+                                           </div>
+                                           <div class="d-flex align-items-center justify-content-around">
+                                           
+                                           <div class="b_log_input">
+                                            <!-- <input type="hidden" id="deleteId" name="bId" value="{{ cont.0 }}" /> -->
+                                            <button type="button" id="bLsubmit" value="{{ cont.0 }}" class="deleteBlogBtn bLsubmit">Yes</button>
+                                          </div>
+                                          
+                                        
+                                        </div>
+                                        </div>
+    
+                                      </div>
+                                    </div>
+                                  </div>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <!---Blog list-->
+                </div>
+            </div>
+            <!--Blog side content-->
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

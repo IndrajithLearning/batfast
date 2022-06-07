@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{%block content%}
+
+<div class="blogCms bCont">
+  <div class="blogCmsInner">
+    {% for cat,message in get_flashed_messages(with_categories = true) %}
+    <div class="alert alert-danger text-center">
+      {{ message }}
+    </div>
+    {% endfor %}
+    <h3>Hello {{session.userName}}</h3>
+    <form action="{{url_for('blog_content')}}" method="POST" enctype="multipart/form-data">
+      <div class="b_log_input">
+        <input type="text" name="bTitle" class="bLinput" placeholder="Blog title" />
+      </div>
+      <div class="b_log_input">
+        <!-- <input type="text" name="bContent" class="bLinput content" placeholder="Blog content" /> -->
+        <textarea name="bContent" class="bLinput content" placeholder="Blog content"  rows="4" cols="50"></textarea>
+      </div>
+      <div class="b_log_input">
+        <input type="file" name="bImage" class="bLinput" placeholder="Blog Image" accept="image/png, image/jpeg" />
+      </div>
+      <div class="b_log_input">
+        <input type="submit" value="Submit" class="bLsubmit" />
+      </div>
+
+
+  </form>
+</div>
+</div>
+</div>
+
+{%endblock content%}
