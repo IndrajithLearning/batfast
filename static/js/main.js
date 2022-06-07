@@ -1,10 +1,20 @@
-$("#videoBtn").click(function() {
-    $("#watchVideo").play();
-  });
-  $("#videoClose").click(function() {
-    $("#watchVideo").pause();
-  });
-  
+
+$("#videoBtn").click(function(){
+  $("#watchVideo").trigger('play');
+});
+$("#videoClose").click(function(){
+  $("#watchVideo").trigger('pause');
+});
+
+
+
+
+  $("#getScroll").click(function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#getSection").offset().top
+    }, 100);
+});
+
 /*menu bar*/
 $(".menuBar").click(function(){
     $(this).toggleClass("active");
@@ -30,7 +40,32 @@ $(".upPost").click(function(){
   $(".blinkAlertUpdate").removeClass('active');
 });
 
+/*Get Touch Ajax*/
 
+$(document).ready(function() {
+	$("#getSubmitBtn").click(function(event){
+    var getName = $("#getName").val();
+    var getEmail =  $("#getEmail").val();
+    var getMsg = $("#getMsg").val();
+  
+		$.ajax({
+			data : {
+        getName :getName,
+        getEmail :getEmail,
+				getMsg :getMsg
+			},
+			type : 'POST',
+			url : '/get-touch'
+		})
+		.done(function(data) {
+      $("#getTouchForm").fadeOut();
+      $("#getSucMsg").html("Thank you "+getName+"."+" We will get back to you soon.")
+		});
+		event.preventDefault();
+
+	});
+
+});
 
 /*Delete Blog Ajax*/
 $(document).ready(function() {
@@ -53,7 +88,7 @@ $(document).ready(function() {
 
 	});
 
-});
+}); 
 
 
 
@@ -63,13 +98,11 @@ $(document).ready(function() {
     var upId = $(this).val();
     var upTitle = $(".upTitle"+upId).val()
     var upContent =  $(".upContent"+upId).val()
-    var upImage = $(".upImage"+upId)[0].files[0]
 		$.ajax({
 			data : {
 				blogId :upId,
         blogTitle :upTitle,
-        blogContent:upContent,
-        blogImage:upImage,
+        blogContent:upContent
 			},
 			type : 'POST',
 			url : '/update-blog'

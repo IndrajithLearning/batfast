@@ -1,8 +1,10 @@
+
 from datetime import datetime
 from distutils.command.upload import upload
 from email.policy import default
 from fileinput import filename
 from operator import ipow
+import re
 import secrets
 from sqlite3 import Cursor
 from turtle import title
@@ -31,31 +33,6 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 mysql = MySQL(app)
 
 
-
- 
-
-
-
-
-
-#create db model
-# class blogContent(db.Model):
-#         id = db.Column(db.Integer, primary_key = True)
-#         blogTitle = db.Column(db.String(1000), nullable=False)
-#         blogContent= db.Column(db.String(1000), nullable=False)
-#         blogImage = db.Column(db.Text)
-        
-# def __init__(self, blogTitle,blogContent, blogImage):
-#         self.blogTitle = blogTitle
-#         self.blogContent = blogContent
-#         self.blogImage = blogImage
-
-@app.route("/")
-@app.route("/home")
-def home():
-    return render_template("home.html")
-
-
 def convert_blog_image(blogImage):
         hash_image = secrets.token_urlsafe(10)
         _, file_ext = os.path.splitext(blogImage.filename)
@@ -63,6 +40,28 @@ def convert_blog_image(blogImage):
         file_path = os.path.join(UPLOAD_FOLDER,img_name)
         blogImage.save(file_path)
         return img_name
+
+@app.route("/")
+@app.route("/home")
+def home():
+    return render_template("home.html")
+
+
+
+
+@app.route("/get-touch", methods = ['GET','POST'])
+def get_touch():
+        if request.method == 'POST':
+                getName = request.form['getName']
+                getEmail = request.form['getEmail']
+                getMsg = request.form['getMsg']
+                cursor = mysql.connection.cursor()
+                cursor.execute("INSERT INTO gettouch (getName,getEmail,getMsg) VALUES(%s,%s,%s)",(getName,getEmail,getMsg))
+                mysql.connection.commit()
+                cursor.close()
+                gtSucess = jsonify({'getName':getName})
+                return  gtSucess
+
 
 
 @app.route("/blog-login" , methods =['GET','POST'])
@@ -132,12 +131,11 @@ def update_blog():
                 blogId = request.form.get('blogId')
                 blogTitle = request.form['blogTitle']
                 blogContent = request.form['blogContent']
-                blogImage = request.form['blogImage']
                 cursor = mysql.connection.cursor()
-                cursor.execute("""UPDATE blogcontent SET title = %s, content = %s , image = %s WHERE id = %s""",(blogTitle,blogContent,blogImage,blogId,) )
+                cursor.execute("""UPDATE blogcontent SET title = %s, content = %s  WHERE id = %s""",(blogTitle,blogContent,blogId,) )
                 mysql.connection.commit()
                 cursor.close()
-                upData = jsonify({'blogId':blogId,'blogTitle':blogTitle,'blogContent':blogContent,'blogImage':blogImage})
+                upData = jsonify({'blogId':blogId,'blogTitle':blogTitle,'blogContent':blogContent})
                 return  upData
 
 
@@ -151,7 +149,18 @@ def delete_blog():
                 cursor.close()
                 retData = jsonify({'deblogId':deblogId})
                 return retData
-        
+
+@app.route("/image-update",methods= ['GET','POST'])
+def image_update():
+        if request.method == 'POST':
+                blogImage = convert_blog_image(request.files.get('bImage'))
+                bId = request.form.get('bId')
+                cursor = mysql.connection.cursor()
+                cursor.execute("""UPDATE blogcontent SET image = %s  WHERE id = %s""",(blogImage,bId,) )
+                mysql.connection.commit()
+                cursor.close()
+                return redirect(url_for('blog_management'))
+
 if __name__ == '__main__':
    app.run(host='localhost', port=5000)
    app.run(debug = True)

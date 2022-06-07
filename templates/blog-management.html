@@ -5,11 +5,11 @@
         <div class="cmsAlert">
             <div class="cmsAlertInn">
         <div class="alert alert-danger text-center blinkAlert" role="alert" id="delAlert">
-           <p class="m-0"> Blog has been deleted sucessfully.</p>
+           <p class="m-0"> Blog has been sucessfully deleted.</p>
             
         </div>
         <div class="alert alert-success text-center blinkAlertUpdate" role="alert" id="delAlert">
-            <p class="m-0">Blog has been updated sucessfully.</p>
+            <p class="m-0">Blog has been sucessfully updated.</p>
         </div>
         </div>
     </div>
@@ -24,6 +24,7 @@
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">BLOG TITLE</th>
+                                <th scope="col">UPDATE IMAGE</th>
                                 <th scope="col">EDIT</th>
                                 <th scope="col">DELETE</th>
                             </tr>
@@ -33,11 +34,41 @@
                             <tr class="{{cont.0}}">
                                 <td>{{ cont.0 }}</td>
                                 <td class="aftUp">{{ cont.1 }}</td>
+                                <td><a href="#"  class="upPost" data-bs-toggle="modal" data-bs-target="#imgModal{{cont.0}}">Update Image
+                                </a>
+                                </td>
                                 <td><a href="#"  class="upPost" data-bs-toggle="modal" data-bs-target="#updateModal{{cont.0}}">Edit
                                     </a>
                                 </td>
                                 <td><a href="#" class="delTri" data-bs-toggle="modal"  data-bs-target="#deleteModal{{cont.0}}">Delete</a></td> 
                             </tr>
+                             <!---img update blog Modal-->
+                             <div class="modal fade updateBlogModal" id="imgModal{{cont.0}}"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title text-center" id="staticBackdropLabel">Update Image</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <form action="{{url_for('image_update')}}" method="POST" enctype="multipart/form-data">
+                                          <input type="hidden" name="bId" value="{{ cont.0 }}" />
+                                          <div class="b_log_input">
+                                            <input type="file" name="bImage" class="bLinput"  placeholder="Blog Image" accept="image/png, image/jpeg"  />
+                                          </div>
+                                          
+                                         
+                                          <div class="b_log_input">
+                                            <input type="submit" class="imgUpBtn bLsubmit" value="Update Image">
+                                          </div>
+                                    
+                                    
+                                      </form>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
                             <!---update blog Modal-->
                             <div class="modal fade updateBlogModal" id="updateModal{{cont.0}}"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -56,10 +87,7 @@
                                               <textarea type="text" name="bContent" value="{{ cont.2 }}" class="bLinput upContent{{ cont.0 }}" placeholder="Blog content" >{{ cont.2 }}</textarea>
                                               <!-- <input type="text" name="bContent" value="{{ cont.2 }}" class="bLinput upContent{{ cont.0 }}" placeholder="Blog content" /> -->
                                             </div>
-                                            <div class="b_log_input">
-                                              <!-- <input id="hiddenImage" type = "file" name = "file" class = "file"> -->
-                                              <input type="file" accept="image/*" name="bImage" id="imag" value="{{cont.3}}" class="bLinput upImage{{ cont.0 }}" placeholder="Blog Image" />
-                                            </div>
+                                           
                                             <div class="b_log_input">
                                               <button type="button"  value="{{ cont.0 }}" class="updateBlogBtn bLsubmit">Update</button>
                                             </div>

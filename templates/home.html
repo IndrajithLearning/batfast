@@ -13,13 +13,19 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
-      <div class="hmCfirstImg hmCimg"></div>
+      <div class="hmCfirstImg hmCimg">
+        <h3>Cricket</h3>
+      </div>
     </div>
     <div class="carousel-item" data-bs-interval="2000">
-      <div class=" hmCsecImg hmCimg"></div>
+      <div class=" hmCsecImg hmCimg">
+        <h3>Baseball</h3>
+      </div>
     </div>
     <div class="carousel-item">
-      <div class="hmCthirdImg hmCimg"></div>
+      <div class="hmCthirdImg hmCimg">
+        <h3>Tennis</h3>
+      </div>
     </div>
   </div>
 
@@ -96,7 +102,7 @@
         century entrepreneurs transcending the old norms and exciting a new generation of players. Sport can now be
         unrestricted entertainment available to all, underpinned by social inclusion and global reach.</p>
       <div class="dbBtn">
-        <button type="button" class="getButton"> Get In Touch</button>
+        <button type="button" class="getButton" id="getScroll"> Get In Touch</button>
         <button type="button" class="getButton" data-bs-toggle="modal" data-bs-target="#videoModal" id="videoBtn">Watch
           Video</button>
       </div>
@@ -229,24 +235,27 @@
 </div>
 <!--end of fourth container-->
 <!--fifth container-->
-<div class="fifthSec">
+<div class="fifthSec" id="getSection">
   <div class="fifthSecInner">
     <div class="batContainer">
       <div class="getInTouch">
         <h3>Get In Touch.</h3>
         <div class="gtInn">
+          <p id="getSucMsg"></p>
+          <div id="getTouchForm">
           <div class="gtFinputSec">
-            <input class="gtFinn"  placeholder="Full Name" name="fName" />
+            <input class="gtFinn" id="getName"  placeholder="Full Name" name="getName" />
           </div>
           <div class="gtFinputSec">
-            <input class="gtFinn"  placeholder="Email Address" name="fEmail" />
+            <input class="gtFinn" id="getEmail" placeholder="Email Address" name="getEmail" />
           </div>
           <div class="gtFinputSec">
-            <textarea  rows="4" cols="50" placeholder="Your message" name="fMsg" ></textarea>
+            <textarea  rows="4" cols="50" id="getMsg" placeholder="Your message" name="getMsg" ></textarea>
           </div>
           <div class="gtFinputSec">
-            <button class="gtSubmit" type="button">SUBMIT</button>
+            <button class="gtSubmit" id="getSubmitBtn" type="button">SUBMIT</button>
           </div>
+        </div>
         </div>
       </div>
     </div>
